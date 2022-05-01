@@ -1,0 +1,140 @@
+Mainwindow:
+
+
+<Mainwindow>:
+
+    AsyncImage:
+        id : thumb
+        color : 0,0,0,1
+        allow_stretch : True
+        size_hint : 0.6,0.4
+        pos : root.width*0.2, root.height*0.5
+
+    Label:
+        id : title
+
+    TextInput:
+        id : url_input
+        background_color : 0,0,0,1
+        foreground_color : 1,1,1,1
+        cursor_color : 1,1,1,1
+        hint_text : "Youtube URL"
+        multiline : False
+        size_hint : None,None
+        size : root.width*0.481,root.height*0.05
+        pos : root.width*0.1,root.height*0.90
+        canvas.before:
+            Line:
+                width : 0.5
+                points: root.width*0.1,root.height*0.90, root.width*0.90,root.height*0.90
+        on_text_validate : root.on_press_enter(self, audio_download, video_download)
+
+    Button:
+        text : "->"
+        size_hint : None,None
+        size : root.width*0.05,root.height*0.05
+        pos : root.width*0.85,root.height*0.90
+        foreground_color : 0,0,1,1
+        value : url_input.text
+        on_press : root.on_press_button(self, audio_download, video_download)
+
+    Button:
+        id : audio_download
+        value : "Audio Download"
+        size_hint : 0.4,0.1
+        pos : root.width*0.05,root.height*0.3
+        background_color : 0,0,0,1
+        disabled : root.button_state
+        on_press : root.download_audio(again)
+
+    Button:
+        id : video_download
+        value : "Video Download"
+        size_hint : 0.4,0.1
+        pos : root.width*0.55,root.height*0.3
+        background_color : 0,0,0,1
+        disabled : root.button_state
+        on_press : root.download_video_button(btn_144p, btn_240p , btn_360p, btn_480p, btn_720p, btn_1080p, btn_1440p, btn_2160p)
+
+    BoxLayout:
+        orientation : "horizontal"
+        pos : root.width*0,root.height*0.15
+        Button:
+            id : btn_144p
+            value : "144p"
+            size_hint : 0.1,0.1
+            disabled : root.res_state
+            on_press : root.download_video(self, again)
+            background_color : 0,0,0,1
+
+        Button:
+            id : btn_240p
+            value : "240p"
+            size_hint : 0.1,0.1
+            disabled : root.res_state
+            on_press : root.download_video(self, again)
+            background_color : 0,0,0,1
+
+        Button:
+            id : btn_360p
+            value : "360p"
+            size_hint : 0.1,0.1
+            disabled : root.res_state
+            on_press : root.download_video(self, again)
+            background_color : 0,0,0,1
+
+        Button:
+            id : btn_480p
+            value : "480p"
+            size_hint : 0.1,0.1
+            disabled : root.res_state
+            on_press : root.download_video(self, again)
+            background_color : 0,0,0,1
+
+        Button:
+            id : btn_720p
+            value : "720p"
+            size_hint : 0.1,0.1
+            disabled : root.res_state
+            on_press : root.download_video(self, again)
+            background_color : 0,0,0,1
+
+        Button:
+            id : btn_1080p
+            value : "1080p"
+            size_hint : 0.1,0.1
+            disabled : root.res_state
+            on_press : root.download_video(self, again)
+            background_color : 0,0,0,1
+
+        Button:
+            id : btn_1440p
+            value : "1440p"
+            size_hint : 0.1,0.1
+            disabled : root.res_state
+            on_press : root.download_video(self, again)
+            background_color : 0,0,0,1
+
+        Button:
+            id : btn_2160p
+            value : "2160p"
+            size_hint : 0.1,0.1
+            disabled : root.res_state
+            on_press : root.download_video(self, again)
+            background_color : 0,0,0,1
+
+    Label:
+        text : root.text
+        pos : root.width*0,root.height*(-0.38)
+
+    Button:
+        id : again
+        value : "Download Again"
+        size_hint : 0.98,0.08
+        background_color : 0,0,0,1
+        disabled : root.again_btn_state
+        pos : root.width*0.01, root.height*0.01
+        on_press : root.reset(btn_144p, btn_240p , btn_360p, btn_480p, btn_720p, btn_1080p, btn_1440p, btn_2160p, self, audio_download, video_download)
+
+
+
