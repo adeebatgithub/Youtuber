@@ -57,7 +57,7 @@ class YTD:
         tag = self.check_res_video(resolution)
 
         self.set_res = self.stream.get_by_itag(tag)
-        self.set_res.download()
+        self.set_res.download("Downloads")
 
     def audio_download(self, *args):
 
@@ -65,7 +65,7 @@ class YTD:
 
         self.set_res = self.stream.get_by_itag(tag)
 
-        self.set_res.download()
+        self.set_res.download("Downloads")
 
     def get_title(self):
         return self.video.title
